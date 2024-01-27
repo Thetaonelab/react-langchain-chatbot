@@ -1,5 +1,6 @@
 import Chatbot from "react-chatbot-kit";
 import "react-chatbot-kit/build/main.css";
+import "./App.css";
 
 import ActionProvider from "./components/ActionProvider";
 import MessageParser from "./components/MessageParser";
@@ -18,6 +19,8 @@ function App() {
           config={config}
           actionProvider={ActionProvider}
           messageParser={MessageParser}
+          headerText="Cheqd - Bodhi AI"
+          placeholderText="What's on your mind ?"
         />
       </header>
     </div>
