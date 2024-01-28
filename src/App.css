@@ -47,11 +47,62 @@
   border-radius: 6px;
   padding: 4px;
   margin: 4px auto;
+  transition: all 0.3s;
 }
 
 .suggestion:hover {
-  opacity: 0.9;
+  opacity: 0.8;
   cursor: pointer;
+}
+
+.image-message-wrapper {
+  width: 75%;
+  background-color: #ff508b;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 4px;
+  margin: 4px auto;
+}
+
+.image-message {
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+.image-message > div {
+  text-align: left;
+}
+
+.image-message:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.header-wrapper {
+  height: 56px;
+    color: rgb(87 87 87);
+    background-color: #e2e2e2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    padding-left: 10px;
+}
+
+.header-text {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.header-subtext {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgb(44, 44, 44);
 }
 
 @keyframes App-logo-spin {

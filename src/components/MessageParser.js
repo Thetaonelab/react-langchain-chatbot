@@ -1,9 +1,4 @@
 import axios from "axios";
-import findata from "../data/cheqd-data";
-
-const pretext = findata.map((fd) => fd.join("\n")).join("\n");
-console.log(pretext);
-
 class MessageParser {
   constructor(actionProvider, state, createChatBotMessage) {
     this.actionProvider = actionProvider;
@@ -28,10 +23,22 @@ class MessageParser {
   }
 
   async getReply(userMessage) {
+    const cheqdJwt = localStorage.getItem("imt__token");
+    const existingPretexts = localStorage.getItem("imt__pretexts");
+    const ep = JSON.parse(existingPretexts || "{}");
+    const pretext = ep[cheqdJwt];
+
+    const cheqdUser = localStorage.getItem("imt__user");
+    const { company_name: companyName } = JSON.parse(cheqdUser || "{}");
+
+    if (pretext === undefined || pretext === null)
+      return { answer: "Please train the bot first", followUpQuestions: [] };
+
+    console.log();
     const { data: resp } = await axios.post(
       "/chat",
       {
-        company_name: "THETA ONE",
+        company_name: companyName,
         pretext: pretext,
         session_id: this.state["session_id"] || "",
         question: userMessage,

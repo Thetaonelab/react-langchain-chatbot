@@ -1,7 +1,8 @@
 import React from "react";
 
+
 const SuggestionCustomMessage = (props) => {
-  console.log("SuggestionCustomMessage props", props);
+  console.log("SuggestionImageMessage props", props);
   const {
     actionProvider,
     payload: { text, mParser },
