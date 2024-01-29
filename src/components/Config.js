@@ -5,14 +5,20 @@ import SuggestionCustomMessage from "./SuggestionCustomMessage";
 import SuggestionImageMessage from "./SuggestionImageMessage";
 import Header from "./Header";
 
+const cheqdUser = localStorage.getItem("imt__user");
+const { company_name: companyName } = JSON.parse(cheqdUser || "{}");
+
 const config = {
   // change this to the message you want to be sent to the user when they first open the chatbot
   initialMessages: [
-    createChatBotMessage(`Hey there! I am Bodhi AI. How can I help you ?`),
+    createChatBotMessage(`Hey there! I am Bodhi AI. How can I assist you ?`),
     /* createCustomMessage("hello", "imageBox", {
       payload: { text: "Download invoice for Custobridge Private Limite" },
       widget: "imageBox",
     }), */
+    /* createCustomMessage("hello", "custom", {
+      payload: { text: "What is the financial performance of the company this year ?" },
+    }),  */
   ],
   customStyles: {
     botMessageBox: {

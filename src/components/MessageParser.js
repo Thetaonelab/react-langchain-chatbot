@@ -36,7 +36,7 @@ class MessageParser {
 
     console.log();
     const { data: resp } = await axios.post(
-      "/chat",
+      "/api/chat",
       {
         company_name: companyName,
         pretext: pretext,
