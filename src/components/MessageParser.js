@@ -34,19 +34,20 @@ class MessageParser {
     if (pretext === undefined || pretext === null)
       return { answer: "Please train the bot first", followUpQuestions: [] };
 
-    console.log();
+    const sessionId = localStorage.getItem("imt__session_id");
+    console.log("session id:: ", sessionId);
     const { data: resp } = await axios.post(
       "/api/chat",
       {
         company_name: companyName,
         pretext: pretext,
-        session_id: this.state["session_id"] || "",
+        session_id: sessionId || "",
         question: userMessage,
       },
       { headers: { "Content-Type": "application/json" } }
     );
     console.log(resp);
-    this.state.sessionId = resp.session_id;
+    localStorage.setItem("imt__session_id", resp.session_id);
     return resp;
   }
 }

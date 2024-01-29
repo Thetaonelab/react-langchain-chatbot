@@ -8,7 +8,12 @@ const Header = (props) => {
   return (
     <div className="header-wrapper">
       <div className="header-text">Bodhi AI - Cheqd</div>
-      <div className="header-subtext">Traind on <b style={{fontWeight:800}}>{companyName}</b></div>
+      <div className="header-subtext">
+        Traind on{" "}
+        <b style={{ fontWeight: 800, fontFamily: "monospace" }}>
+          {companyName}
+        </b>
+      </div>
     </div>
   );
 };

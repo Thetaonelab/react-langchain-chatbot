@@ -2,7 +2,7 @@ import React from "react";
 import pdfIcon from "../assets/pdf-icon.png";
 
 const SuggestionImageMessage = (props) => {
-  console.log("SuggestionCustomMessage props", props);
+  // console.log("SuggestionCustomMessage props", props);
   const {
     actionProvider,
     payload: { text },

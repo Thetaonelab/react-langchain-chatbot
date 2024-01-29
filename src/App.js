@@ -62,6 +62,7 @@ function App() {
     localStorage.removeItem("imt__token");
     localStorage.removeItem("imt__user");
     localStorage.removeItem("imt__pretexts");
+    localStorage.removeItem("imt__session_id");
   };
 
   const train = async () => {
@@ -151,7 +152,7 @@ function App() {
         )}
       </header>
       <div
-        className="text-white font-bold text-sm absolute bottom-10 right-10"
+        className="text-white font-bold text-sm absolute bottom-10 right-10 cursor-pointer"
         onClick={logout}
       >
         Logout
