@@ -1,11 +1,13 @@
 import axios from "axios";
 
+const BASE_URL = "https://staging-1.cheqd.in";
+
 export async function trainBodhiAndGeneratePreText(jwt, companyName) {
   try {
     const finalData = [];
     // 0. profile data
     const [profileData] = await getJsonData(
-      "https://cheqd.in/api/get_admin_details",
+      BASE_URL + "/api/get_admin_details",
       jwt,
       undefined,
       "GET"
@@ -20,7 +22,7 @@ export async function trainBodhiAndGeneratePreText(jwt, companyName) {
     // 1. get sales data
 
     const salesData2223 = await getJsonData(
-      "https://cheqd.in/api/get_invoice_graph_data",
+      BASE_URL + "/api/get_invoice_graph_data",
       jwt,
       {
         start_year: 2022,
@@ -28,7 +30,7 @@ export async function trainBodhiAndGeneratePreText(jwt, companyName) {
       }
     );
     const salesData2324 = await getJsonData(
-      "https://cheqd.in/api/get_invoice_graph_data",
+      BASE_URL + "/api/get_invoice_graph_data",
       jwt,
       {
         start_year: 2023,
@@ -51,7 +53,7 @@ Sales data for financial year 2022-2023 in (month|amount) format:
 
     // 1. get purchase data
     const purchaseData2223 = await getJsonData(
-      "https://cheqd.in/api/get_expense_graph_data",
+      BASE_URL + "/api/get_expense_graph_data",
       jwt,
       {
         start_year: 2022,
@@ -59,7 +61,7 @@ Sales data for financial year 2022-2023 in (month|amount) format:
       }
     );
     const purchaseData2324 = await getJsonData(
-      "https://cheqd.in/api/get_expense_graph_data",
+      BASE_URL + "/api/get_expense_graph_data",
       jwt,
       {
         start_year: 2023,
@@ -81,7 +83,7 @@ Sales data for financial year 2022-2023 in (month|amount) format:
 
     // 3. employee data
     const employeeData = await getJsonData(
-      "https://cheqd.in/api/get_employee_list",
+      BASE_URL + "/api/get_employee_list",
       jwt,
       { page_no: 1, no_of_rows: 10, is_active: true }
     );
@@ -99,7 +101,7 @@ Sales data for financial year 2022-2023 in (month|amount) format:
 
     // 4. customer data
     const customerData = await getJsonData(
-      "https://cheqd.in/api/get_customer_details",
+      BASE_URL + "/api/get_customer_details",
       jwt,
       {
         page_no: 1,

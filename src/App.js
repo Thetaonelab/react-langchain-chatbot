@@ -33,7 +33,7 @@ function App() {
   const login = async () => {
     setLoading(true);
     const { user, token } = await getJsonData(
-      "https://cheqd.in/api/login",
+      "https://staging-1.cheqd.in/api/login",
       undefined,
       { email, password }
     );
